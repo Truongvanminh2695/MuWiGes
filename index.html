@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>MuWiGes</title>
+      <style>
+            table, th, td {
+                border: 1px solid black;
+                  border-collapse: collapse;
+                 text-align: center
+            }
+            th, td {
+                padding: 5px;
+                margin-left: auto;
+                  margin-right: auto;
+            }
+            </style>
+</head>
+<body>
+      <div id="main" style="width: 1500px;">
+      <!-- main --><h1>Multimodal Hand Gesture Dataset from Wrist-worn sensors (MuWiGes)</h1>
+      <h2>About the Project</h2>
+      <p>
+            In the framework of a project entitle "Edge Intelligence based Hand Gestures Recognition using Wearable Multimodal Sensors for Human Machine Interaction" supported by the Air Force Office of Scientific Research under award number FA2386-20-1-4053.
+      </p>
+      <h2>Description</h2>
+      <p>
+            Hand gesture is one of the most natural and intuitive means of communication between human and machine. In recent years, many datasets and deep learning models have been proposed for hand gesture recognition. However, it still lacks publicly available datasets collected by multimodal wrist-worn sensors. As a result, methods for hand gesture recognition captured from such sensors are very limited. In this paper, we design a prototype of wrist-worn device that is able to capture both RGB video streams and motion information of hand gestures. Then we build a hand gesture dataset using this device. This new benchmark dataset, named MuWiGes with sufficient size, variety, and real-world elements, is able to train and evaluate deep neural networks. It contains more than 5408 samples focused on interaction with home appliances. This dataset could be the first multimodal dataset released for the research community using wrist-worn sensors.
+            The MuWiGes dataset contains 12 actions performed by 50 persons (30 males and 20 females) with age and gender distribution as follows:
+
+
+      </p>
+      <p>
+      <img src=".\img\Age.PNG" width="550" border="1"></p>
+      <p class="fig">
+      <i>  Figure 1: Age Distribution of 50 Subjects</i>
+      </p>
+      <p>
+      <img src=".\img\Gender.PNG" width="550" border="1"></p>
+      <p class="fig">
+      <i>Figure 2: Gender Distribution of 50 Subjects</i> 
+      </p>
+      
+      <p>
+            Each subject performs continously all 12 dynamic hand gestures. All frames, accelerometer data (gx, gy, gz) and gyroscope data (ax, ay, az) are synchronized. Furthermore, to facilitate the labeling process, the starting and ending points of each gesture are also marked during data acquisition via a keypad or a remote control device
+      </p>
+      
+      <p>
+      <img src=".\img\data_vis2-1.png" width="750" border="1"></p>
+      <p class="fig">
+      <i>Figure 3: An example of gesture G1: 8 frames extracted uniformaly from the original sequence from the third person view are shown in the top row
+            while the accelerometer and gyroscope signal are in the middle row and 8 frames captured by the prototype are in the bottom row</i> 
+      </p>
+      
+      
+      
+      
+      <h2>Hardware</h2>
+      <p>
+            In this section we describe the layout of the  system the collection data MuWiGes.
+      </p>
+      <p>
+            We build a the wearable device consists of three main components: 1) the first component includes a wide-angle camera, an accelerometer and a gyroscope sensor; 2) the second component is an embedded device (i.e. jetson nano) that is in charge of data acquisition, processing and storage; 3) the final component is the power supply in Figure 4.
+      </p>
+      
+      <p>
+      <img src=".\img\device.PNG" width="550" border="1"></p>
+      <p class="fig">
+      <i>Figure 4: Main components of the device</i> 
+      </p>
+      
+      <p>
+            The sensors are mounted on a watch-like hand band so that the user can wear it easily at his wrist as Figure 5. 
+            
+      </p>
+      <img src=".\img\wearable_device.jpg" width="550"  border="1"></p>
+      <i>Figure 5: Design wearable device</i> 
+      <p>
+            We use a lowcost wide-angle RGB camera for the purpose of ordinary usage. 
+            The camera model is IMX219-160 which gives the
+            highest resolution of 3280 × 2464 at 15 fps, the camera side field of view of 160o. At 1280 × 720 resolution, the acquisition rate may reach 90 fps. 
+            The MPU6050 module
+            is used to receive accelerometer and gyroscope signals. The device is worn on the backside of the user’s right wrist. As a result, the camera will capture images of the hand back. The sensors are connected to an embedded computer (i.e. Jetson
+            Nano) to transfer data through CSI port. Figure 6 illustrates the final design of our prototype.
+      </p>
+      <p>
+      
+      <img src=".\img\Prototyp.PNG" width="550" border="1"></p>
+      
+      <p class="fig">
+      <i>Figure 6: Illustration of our designed prototype</i> 
+      </p>
+      
+           
+      <h2>Action Checklist</h2>
+      
+      <p>
+            For each gesture, We describe as in the following table.
+      </p>
+      
+      
+
+      <p></p><table class="Scene_1">
+      <col width="30">
+      <col width="100">
+      <col width="180">
+      <col width="180">
+      <col width="180">
+
+      
+      <tbody>
+      <tr>
+      <th>ID</th>
+      <th>Action</th>
+      <!-- <th>Recording Length (sec)</th> -->
+      <th>Gesture trajectory illustration</th>
+
+      <th>Sample Video</th>
+      <th>Gyroscope signal</th>
+      <th>Accelerometer signal</th>
+      
+      </tr>
+      <tr>
+      <td>1</td>
+      <td >G1</td>
+    
+      <td><p><img src=".\img\G1.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/R2ZWzQwiAkk"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\1-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\1-a.PNG" width="280" height="160"></p></td>
+      
+      </tr>
+      <tr>
+      <td >2</td>
+      <td >G2</td>
+      
+      <td style="margin: 0px auto;"><p><img src=".\img\G2.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/KDOMjNwHDkQ"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\2-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\2-a.PNG" width="280" height="160"></p></td>
+      
+      </tr>
+      <tr>
+      <td>3</td>
+      <td>G3</td>
+    
+      <td ><p><img src=".\img\G3.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/MKJIUd09mHI"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\3-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\3-a.PNG" width="280" height="160"></p></td>
+      
+      </tr>
+      <tr>
+      <td>4</td>
+      <td>G4</td>
+ 
+      <td ><p><img src=".\img\G4.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/Tq2ZGS4PMeI"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\4-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\4-a.PNG" width="280" height="160"></p></td>
+     
+      </tr>
+      <tr>
+      <td>5</td>
+      <td>G5</td>
+    
+      <td ><p><img src=".\img\G5.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/LpM1aOhujcw"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\5-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\5-a.PNG" width="280" height="160"></p></td>
+     
+      </tr>
+      <tr>
+      <td>6</td>
+      <td>G6</td>
+    
+      <td ><p><img src=".\img\G6.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/y5MRNEgNePw"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\6-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\6-a.PNG" width="280" height="160"></p></td>
+      
+      </tr>
+      <tr>
+      <td>7</td>
+      <td>G7</td>
+      
+      <td ><p><img src=".\img\G7.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/K37hO8iwvOM"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\7-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\7-a.PNG" width="280" height="160"></p></td>
+      
+      </tr>
+      <tr>
+      <td>8</td>
+      <td>G8</td>
+      
+      <td ><p><img src=".\img\G8.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/0o4p-p3xpl0"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\8-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\8-a.PNG" width="280" height="160"></p></td>
+      
+      </tr>
+      <tr>
+      <td>9</td>
+      <td>G9 </td>
+    
+      <td ><p><img src=".\img\G9.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/KDitUWToVFw"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\9-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\9-a.PNG" width="280" height="160"></p></td>
+     
+      </tr>
+      <tr>
+      <td>10</td>
+      <td>G10 </td>
+     
+      <td ><p><img src=".\img\G10.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/iHJ5GL2ehdQ"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\10-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\10-a.PNG" width="280" height="160"></p></td>
+      
+      </tr>
+      <tr>
+      <td>11</td>
+      <td>G11</td>
+      
+      <td ><p><img src=".\img\G11.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/Sf-4e8v6lwQ"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\11-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\11-a.PNG" width="280" height="160"></p></td>
+      
+      </tr>
+      <tr>
+      <td>12</td>
+      <td>G12</td>
+      
+      <td ><p><img src=".\img\G12.PNG" width="120" height="80" ></p></td>
+      <td><p><iframe width="280" height="160" src="https://www.youtube.com/embed/y-ldpZGoyuM"  frameborder="0"  allowfullscreen></iframe></p></td>
+      <td><p><img src=".\img\12-g.PNG" width="280" height="160"></p></td>
+      <td><p><img src=".\img\12-a.PNG" width="280" height="160"></p></td>
+     
+      </tr>
+      </tbody></table>
+      
+      <p></p>
+      
+      
+      
+      <h2>Collected Data and File Formats</h2>
+      
+      <p>
+      In the table below, we provide information on the type and the size of data collected.
+      </p>
+      <p></p><table class="componentstable"><tbody><tr><th>Collected Data</th>
+      <th>Data Format</th>
+      <th>Sample rate (Hz)</th>
+      <th>File Name</th>
+
+      <th>Approximate Size of dataset</th>
+      </tr>
+      <tr>
+      <td>RGB color data</td>
+      <td>MP4
+            <br>
+            Resolution: 1280x720
+      </td>
+      <td>
+            ~30 
+      </td>
+      <td>gesture_name.mp4 
+            <br>
+            (01.mp4)</td>
+      <td>12 GB</td>
+
+      </tr>
+      <tr>
+      <td>Accelerometers</td>
+      <td>ASCII</td>
+      <td>
+            ~100 
+      </td>
+      <td>gesture_name 
+            <br>
+      (01.csv)</td>
+      <td>80 MB</td>
+
+      </tr>
+      </tbody></table>
+      
+      
+      
+      
+      
+      
+      <h2>Download Instructions</h2>
+      
+      <p>
+      Our MuWiGes dataset is available and free for research purpose. If you want to use our dataset, please contact thanh-hai.tran@mica.edu.vn.
+      </p>
+      
+      
+      
+      
+      
+      </div></body></html>
